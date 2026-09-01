@@ -29,10 +29,19 @@ export default function App() {
   }, [loadDocuments]);
 
   return (
-    <main style={{ fontFamily: 'system-ui, sans-serif', padding: '2rem' }}>
-      <h1>Document Management System</h1>
-      <UploadComponent owner={OWNER} onUploaded={loadDocuments} />
-      <DocumentList documents={documents} isLoading={isLoading} error={error} />
+    <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-8">
+      <div className="mx-auto flex max-w-3xl flex-col gap-6">
+        <header className="border-b border-slate-200 pb-4">
+          <h1 className="text-2xl font-semibold text-slate-800 sm:text-3xl">
+            Document Management System
+          </h1>
+          <p className="mt-1 text-sm text-slate-500">
+            Envie, liste e baixe seus documentos.
+          </p>
+        </header>
+        <UploadComponent owner={OWNER} onUploaded={loadDocuments} />
+        <DocumentList documents={documents} isLoading={isLoading} error={error} />
+      </div>
     </main>
   );
 }
